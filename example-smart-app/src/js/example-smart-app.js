@@ -44,8 +44,6 @@
           console.log(byCodes('3141-9'));
           console.log(byCodes('8302-2'));
           console.log(byCodes('8310-5'));
-          yourObservation = byCodes("8867-4");
-
 
           var gender = patient.gender;
 
@@ -60,12 +58,10 @@
           // Observations
           // lymph = byCodes('26478-8');
           // Cerner SoF Tutorial Observations
+           var hrate = byCodes('8867-4');
+           var weight = byCodes('3141-9');
            var height = byCodes('8302-2');
-           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
-           var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
-           var hdl = byCodes('2085-9');
-           var ldl = byCodes('2089-1');
-
+           var temp = byCode('8310-5')
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -119,7 +115,7 @@
       hrate: {value: ''},
       weight: {value: ''},
       height: {value: ''},
-      temp: {value: ''},
+      temp: {value: ''}
     };
   }
 
