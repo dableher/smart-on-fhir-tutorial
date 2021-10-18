@@ -16,9 +16,8 @@
            type: 'Observation',
            query: {
              code: {
-               $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
-                     'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-                     'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
+               $or: ['http://loinc.org|8867-4', 'http://loinc.org|3141-9',
+                     'http://loinc.org|8302-2', 'http://loinc.org|8310-5']
              }
            }
          });
@@ -41,8 +40,12 @@
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
           console.log("byCodes:");
-          console.log(byCodes('8480-6'));
-          console.log(byCodes('8462-4'));
+          console.log(byCodes('8867-4'));
+          console.log(byCodes('3141-9'));
+          console.log(byCodes('8302-2'));
+          console.log(byCodes('8310-5'));
+          yourObservation = byCodes("8867-4");
+
 
           var gender = patient.gender;
 
@@ -72,11 +75,13 @@
 
           // Observations
           //p.lymph = getQuantityValueAndUnit(lymph[0]);
-
+         p.hrate = getQuantityValueAndUnit(hrate[0]);
+         p.weight = getQuantityValueAndUnit(weight[0]);
 
           // Cerner SoF Tutorial Observations
           p.height = getQuantityValueAndUnit(height[0]);
-
+          p.temp = getQuantityValueAndUnit(temp[0]);
+/*
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
           }
@@ -87,6 +92,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
+          */
           console.log('p:');
           console.log(p);
           ret.resolve(p);
@@ -110,11 +116,10 @@
       // lymph: {value: ''}
 
       // Cerner SoF Tutorial Observations
+      hrate: {value: ''},
+      weight: {value: ''},
       height: {value: ''},
-      systolicbp: {value: ''},
-      diastolicbp: {value: ''},
-      ldl: {value: ''},
-      hdl: {value: ''},
+      temp: {value: ''},
     };
   }
 
