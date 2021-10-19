@@ -61,7 +61,7 @@
            var hrate = byCodes('8867-4');
            var weight = byCodes('3141-9');
            var height = byCodes('8302-2');
-           var temp = byCode('8310-5')
+           var temp = byCodes('8310-5')
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
